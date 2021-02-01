@@ -1,3 +1,13 @@
+function isValidName(name) {
+  if (typeof name !== 'string') return false
+  if (!name) return false
+
+  return name
+    .trim('')
+    .split(' ')
+    .every((word) => word.length >= 2)
+}
+
 const testCases = {
   'a bb cccc': false,
   'abc abc-abab bba': true,
@@ -7,16 +17,6 @@ const testCases = {
   ' ababab    abb a': false,
   '123': true,
   '12': true,
-}
-
-function isValidName(name) {
-  if (typeof name !== 'string') return false
-  if (!name) return false
-
-  return name
-    .trim('')
-    .split(' ')
-    .every((word) => word.length >= 2)
 }
 
 function RunTest() {

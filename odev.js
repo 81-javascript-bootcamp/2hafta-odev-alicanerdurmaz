@@ -45,6 +45,8 @@ function isValidName(name) {
 const book = {
   title: 'Brave New World',
   author: 'Aldous Huxley',
+  genre: "dystopian",
+  year: 1932,
 }
 
 function summary(genre, year) {
@@ -53,6 +55,6 @@ function summary(genre, year) {
   )
 }
 
-
+summary.apply(book, [book.genre, book.year])
 
 
