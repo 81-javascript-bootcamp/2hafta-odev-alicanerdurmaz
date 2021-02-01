@@ -14,7 +14,7 @@ var car = {
 }
 
 var myCarDetails =  car.displayDetails;
-myCarDetails();
+myCarDetails.call(car);
 
 
 /** 
