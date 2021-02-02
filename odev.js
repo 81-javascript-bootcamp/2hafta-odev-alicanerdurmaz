@@ -14,7 +14,7 @@ var car = {
 }
 
 var myCarDetails =  car.displayDetails;
-myCarDetails();
+myCarDetails.call(car);
 
 
 /** 
@@ -23,15 +23,20 @@ myCarDetails();
 
 name string olmali
 name bos olmamali
-bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmali.
+bosluk icerebilir, ancak bosluk haricindeki isimler en az 2 karakterden olusmali.
 
 **/
 
 function isValidName(name) {
-  /// your code here
+	if (typeof name !== 'string') return false
+	if (!name) return false
+	
+	// trim is required for leading and trailing spaces -> e.g. " name  alican " becomes "name  alican"
+  return name
+  .trim('')
+  .split(/\s+/)
+  .every((word) => word.length >= 2)
 }
-
-
 
 /**
 
@@ -43,6 +48,8 @@ function isValidName(name) {
 const book = {
   title: 'Brave New World',
   author: 'Aldous Huxley',
+  genre: "dystopian",
+  year: 1932,
 }
 
 function summary(genre, year) {
@@ -51,6 +58,6 @@ function summary(genre, year) {
   )
 }
 
-
+summary.apply(book, [book.genre, book.year])
 
 
