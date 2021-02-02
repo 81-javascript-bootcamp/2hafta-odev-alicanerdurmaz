@@ -4,11 +4,18 @@ function isValidName(name) {
 
   return name
     .trim('')
-    .split(' ')
+    .split(/\s+/)
     .every((word) => word.length >= 2)
 }
 
 const testCases = {
+  'ab ': true,
+  '  ': false,
+  ' ': false,
+  ' aa    aaa': true,
+  ' ': false,
+  '  ': false,
+  ' aaa ': true,
   'a bb cccc': false,
   'abc abc-abab bba': true,
   ' 123123 123 ': true,

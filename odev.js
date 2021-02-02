@@ -32,7 +32,10 @@ function isValidName(name) {
 	if (!name) return false
 	
 	// trim is required for leading and trailing spaces -> e.g. " name  alican " becomes "name  alican"
-	return name.trim("").split(' ').every((word) =>word.length >= 2)
+  return name
+  .trim('')
+  .split(/\s+/)
+  .every((word) => word.length >= 2)
 }
 
 /**
